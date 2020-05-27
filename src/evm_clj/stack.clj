@@ -1,4 +1,5 @@
-(ns evm-clj.stack)
+(ns evm-clj.stack
+  (:require [evm-clj.types :as t]))
 
 
 (def MAX-STACK-SIZE 1024)
@@ -12,4 +13,7 @@
   (push-stack stack (list :int val)))
 
 (defn pop-stack [stack]
-  (first stack))
+  (pop stack))
+
+(defn peek-as-int [stack]
+  (t/bytes->int (first stack)))
